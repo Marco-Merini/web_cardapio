@@ -82,6 +82,14 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
         <label>Email</label>
         <input name="email" type="email" />
       </div>
+      <div className="InputCpf">
+        <label>CPF</label>
+        <input name="cpf" type="number" />
+      </div>
+      <div className="InputEndereco">
+        <label>Endereço</label>
+        <input name="endereco" type="text" />
+      </div>
       <div className="InputSenha">
         <label>Senha</label>
         <input name="senha" type="password" />
