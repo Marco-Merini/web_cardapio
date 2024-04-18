@@ -1,6 +1,8 @@
 import './styles.css';
 import Header from '../../components/Header';
 
+import Frango from "../../images/frango.jfif";
+
 const Home = () => {
   return (
     <div className="container-home">
@@ -16,7 +18,7 @@ const Home = () => {
           <div className="Main">
             <div className="ProductContainer">
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
+                <img className="ProductImage" src={Frango} alt="Lanche de Frango" />
                 <div className="ProductName">Lanche de Frango</div>
                 <div className="ProductDescription">
                   Peso: 200g <br />
