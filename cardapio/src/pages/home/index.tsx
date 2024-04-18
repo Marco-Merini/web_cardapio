@@ -2,6 +2,11 @@ import './styles.css';
 import Header from '../../components/Header';
 
 import Frango from "../../images/frango.jfif";
+import Xsalada from "../../images/x-salada.jfif";
+import Xburguer from "../../images/X-burguer.jfif";
+import salada from "../../images/salada.jfif";
+import coca2L from "../../images/coca-2l.jfif";
+import agua600ml from "../../images/agua600ml.jfif";
 
 const Home = () => {
   return (
@@ -21,54 +26,52 @@ const Home = () => {
                 <img className="ProductImage" src={Frango} alt="Lanche de Frango" />
                 <div className="ProductName">Lanche de Frango</div>
                 <div className="ProductDescription">
-                  Peso: 200g <br />
+                  Peso: 100g <br />
                   Preço: R$ 15,00 <br />
                   Ingredientes: Frango, alface, tomate, maionese
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
-                <div className="ProductName">Pizza Margherita</div>
+                <img className="ProductImage" src={Xsalada} alt="X-salada" />
+                <div className="ProductName">X-Salada</div>
                 <div className="ProductDescription">
-                  Peso: 400g <br />
-                  Preço: R$ 25,00 <br />
-                  Ingredientes: Molho de tomate, mussarela, manjericão
+                  Peso: 90g <br />
+                  Preço: R$ 12,00 <br />
+                  Ingredientes: Pão de hambúrguer, Queijo prato, Maionese, Cebola, Picles, Alface americana, Catchup e Mostarda
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
-                <div className="ProductName">Massa Carbonara</div>
+                <img className="ProductImage" src={Xburguer} alt="X-burguer" />
+                <div className="ProductName">X-Burguer</div>
                 <div className="ProductDescription">
-                  Peso: 300g <br />
-                  Preço: R$ 20,00 <br />
-                  Ingredientes: Spaghetti, bacon, queijo parmesão, ovos
+                  Peso: 80g <br />
+                  Preço: R$ 14,00 <br />
+                  Ingredientes: Hamburguer e queijo
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
-                <div className="ProductName">Salada Caesar</div>
+                <img className="ProductImage" src={salada} alt="Salada" />
+                <div className="ProductName">Salada</div>
                 <div className="ProductDescription">
-                  Peso: 250g <br />
-                  Preço: R$ 18,00 <br />
-                  Ingredientes: Alface romana, croutons, parmesão, molho Caesar
+                  Peso: 50g <br />
+                  Preço: R$ 7,00 <br />
+                  Ingredientes: Tomates-cereja, rúcula, alface, palmitos , agrião, pepino e cebola
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
-                <div className="ProductName">Calzone de Calabresa</div>
+                <img className="ProductImage" src={coca2L} alt="Cola Cola 2L" />
+                <div className="ProductName">Cola Cola</div>
                 <div className="ProductDescription">
-                  Peso: 350g <br />
-                  Preço: R$ 22,00 <br />
-                  Ingredientes: Calabresa, mussarela, tomate, orégano
+                  Peso: 2L <br />
+                  Preço: R$ 14,00 <br />
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src="placeholder_image.jpg" alt="Product" />
-                <div className="ProductName">Risoto de Funghi</div>
+                <img className="ProductImage" src={agua600ml} alt="Água mineral" />
+                <div className="ProductName">Água Mineral</div>
                 <div className="ProductDescription">
-                  Peso: 300g <br />
-                  Preço: R$ 28,00 <br />
-                  Ingredientes: Arroz arbóreo, cogumelos funghi, creme de leite, queijo parmesão
+                  Peso: 600ml <br />
+                  Preço: R$ 3,00 <br />
                 </div>
               </div>
             </div>
