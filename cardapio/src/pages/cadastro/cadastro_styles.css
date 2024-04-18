@@ -7,7 +7,7 @@
   
   .content-cadastro {
     display: flex;
-    flex-direction: column; /* Alterado */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -16,7 +16,9 @@
   
   .InputNome,
   .InputEmail,
-  .InputSenha {
+  .InputSenha,
+  .InputCpf,
+  .InputEndereco {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centralizado */
@@ -25,13 +27,17 @@
   
   .InputNome label,
   .InputEmail label,
-  .InputSenha label {
+  .InputSenha label,
+  .InputCpf label,
+  .InputEndereco label {
     margin-bottom: 5px; /* Espaçamento abaixo das labels */
   }
   
   .InputNome input,
   .InputEmail input,
-  .InputSenha input {
+  .InputSenha input,
+  .InputCpf input,
+  .InputEndereco input {
     width: 200px; /* Largura dos inputs */
     padding: 8px;
     border-radius: 5px;
@@ -46,5 +52,6 @@
     cursor: pointer;
     margin-top: 20px; /* Espaçamento acima do botão */
     align-self: center; /* Centraliza horizontalmente */
+    align-items: center;
   }
   
