@@ -1,0 +1,90 @@
+.container-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.content-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: calc(100vh - 64px);
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.Header {
+  width: 100%;
+  padding: 20px;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SearchBar {
+  width: 300px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.Link {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Link:hover {
+  text-decoration: underline;
+}
+
+.UserIcon {
+  margin-left: 10px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.Main {
+  width: 100%;
+}
+
+.ProductContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.ProductCard {
+  width: calc(33.33% - 40px);
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.ProductImage {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.ProductName {
+  margin-top: 10px;
+}
+
+.ProductDescription {
+  margin-top: 10px;
+}

@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    width: 100vw;
+    padding: 16px;
+    background-color: red;
+}
+
+header div {
+    display: flex;
+    gap: 8px;
+}
+
+header div a {
+    text-decoration: none;
+    color: white;
+}
+
+header div a:hover {
+    text-decoration: solid;
+}
