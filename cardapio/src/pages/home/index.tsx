@@ -4,9 +4,9 @@ import Header from '../../components/Header';
 import Frango from "../../images/frango.jfif";
 import Xsalada from "../../images/x-salada.jfif";
 import Xburguer from "../../images/X-burguer.jfif";
-import salada from "../../images/salada.jfif";
-import coca2L from "../../images/coca-2l.jfif";
-import agua600ml from "../../images/agua600ml.jfif";
+import Salada from "../../images/salada.jfif";
+import Coca2L from "../../images/coca-2l.jfif";
+import Agua600ml from "../../images/agua600ml.jfif";
 
 const Home = () => {
   return (
@@ -17,13 +17,12 @@ const Home = () => {
           <div className="StyledHeader">
             <div>
               <input className="SearchBar" type="text" placeholder="Pesquisar" />
-              <i className="UserIcon fas fa-user-circle" /> {/* Ícone de usuário */}
             </div>
           </div>
           <div className="Main">
             <div className="ProductContainer">
               <div className="ProductCard">
-                <img className="ProductImage" src={Frango} alt="Lanche de Frango" />
+                <img className="ProductImageFrango" src={Frango} alt="Lanche de Frango" />
                 <div className="ProductName">Lanche de Frango</div>
                 <div className="ProductDescription">
                   Peso: 100g <br />
@@ -32,7 +31,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src={Xsalada} alt="X-salada" />
+                <img className="ProductImageXsalada" src={Xsalada} alt="X-salada" />
                 <div className="ProductName">X-Salada</div>
                 <div className="ProductDescription">
                   Peso: 90g <br />
@@ -41,7 +40,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src={Xburguer} alt="X-burguer" />
+                <img className="ProductImageXburguer" src={Xburguer} alt="X-burguer" />
                 <div className="ProductName">X-Burguer</div>
                 <div className="ProductDescription">
                   Peso: 80g <br />
@@ -50,7 +49,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src={salada} alt="Salada" />
+                <img className="ProductImageSalada" src={Salada} alt="Salada" />
                 <div className="ProductName">Salada</div>
                 <div className="ProductDescription">
                   Peso: 50g <br />
@@ -59,7 +58,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src={coca2L} alt="Cola Cola 2L" />
+                <img className="ProductImageCoca2L" src={Coca2L} alt="Cola Cola 2L" />
                 <div className="ProductName">Cola Cola</div>
                 <div className="ProductDescription">
                   Peso: 2L <br />
@@ -67,7 +66,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="ProductCard">
-                <img className="ProductImage" src={agua600ml} alt="Água mineral" />
+                <img className="ProductImageAgua600ml" src={Agua600ml} alt="Água mineral" />
                 <div className="ProductName">Água Mineral</div>
                 <div className="ProductDescription">
                   Peso: 600ml <br />
