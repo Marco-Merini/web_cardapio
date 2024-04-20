@@ -6,9 +6,11 @@ function Header() {
         <header>
             <h2>Cardápios</h2>
             <div>
-                <Link to="/">Home </Link>
-                <Link to="/login">Login </Link>
-                <Link to="/cadastro">Cadastro </Link>
+                <Link to="/home">Home </Link>
+                <Link to="/">Fazer login </Link>
+                <Link to="/cadastro">Cadastre-se </Link>
+                <Link to="/lanches">Lanches </Link>
+                <Link to="/bebidas">Bebidas </Link>
             </div>
         </header>
     )
