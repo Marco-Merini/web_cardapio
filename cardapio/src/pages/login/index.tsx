@@ -12,7 +12,7 @@ function Login() {
 
     if (email === 'example@example.com' && password === 'password') {
       alert('Login bem-sucedido!');
-      window.location.href = '../Home';
+      window.location.href = '../home';
     } else {
       setError('Email ou senha incorretos. Por favor, tente novamente.');
     }

@@ -84,7 +84,7 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
       </div>
       <div className="InputCpf">
         <label>CPF</label>
-        <input name="cpf" type="number" />
+        <input name="cpf" type="cpf" />
       </div>
       <div className="InputEndereco">
         <label>Endereço</label>
