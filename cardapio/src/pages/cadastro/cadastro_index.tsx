@@ -4,6 +4,9 @@ import Header from '../../components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './cadastro_styles.css';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
+import firebase from '../../main'; // caminho para o arquivo firebase.tsx
 
 interface User {
   id: number;
@@ -20,6 +23,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
   const ref = useRef<HTMLFormElement>(null);
+  const auth = getAuth(firebase);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,32 +35,33 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
     }
 
     try {
-      if (onEdit) {
-        await axios.put(`http://localhost:8800/${onEdit.id}`, {
-          nome: user.nome.value,
-          email: user.email.value,
-          senha: user.senha.value,
-        });
+      const auth = getAuth(firebase);
+      await createUserWithEmailAndPassword(auth, user.email.value, user.senha.value);
+      
+      // Se a criação do usuário for bem-sucedida, então podemos prosseguir com a criação no banco de dados
+      const response = await axios.post("http://localhost:8800", {
+        nome: user.nome.value,
+        email: user.email.value,
+        senha: user.senha.value,
+      });
+
+      if (response.status === 200) {
+        if (user) {
+          user.nome.value = "";
+          user.email.value = "";
+          user.senha.value = "";
+        }
+
+        setOnEdit(null);
+        getUsers();
+
+        toast.success("Usuário cadastrado com sucesso!");
       } else {
-        await axios.post("http://localhost:8800", {
-          nome: user.nome.value,
-          email: user.email.value,
-          senha: user.senha.value,
-        });
+        toast.error("Ocorreu um erro ao cadastrar o usuário.");
       }
-
-      if (user) {
-        user.nome.value = "";
-        user.email.value = "";
-        user.senha.value = "";
-      }
-
-      setOnEdit(null);
-      getUsers();
-      toast.success("Operação realizada com sucesso!");
     } catch (error) {
       console.error("Erro:", error);
-      toast.error("Ocorreu um erro ao processar a solicitação.");
+      toast.error("Ocorreu um erro ao cadastrar o usuário.");
     }
   };
 
@@ -81,14 +86,6 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
       <div className="InputEmail">
         <label>Email</label>
         <input name="email" type="email" />
-      </div>
-      <div className="InputCpf">
-        <label>CPF</label>
-        <input name="cpf" type="cpf" />
-      </div>
-      <div className="InputEndereco">
-        <label>Endereço</label>
-        <input name="endereco" type="text" />
       </div>
       <div className="InputSenha">
         <label>Senha</label>

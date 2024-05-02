@@ -2,19 +2,23 @@ import { ChangeEvent, useState, FormEvent } from 'react';
 import Header from '../../components/Header';
 import './styles.css';
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../main';
+
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
-    if (email === 'example@example.com' && password === 'password') {
-      alert('Login bem-sucedido!');
-      window.location.href = '../home';
-    } else {
-      setError('Email ou senha incorretos. Por favor, tente novamente.');
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Logged in:', userCredential.user);
+    } catch (error) {
+      console.error('Error logging in:');
     }
   };
 
