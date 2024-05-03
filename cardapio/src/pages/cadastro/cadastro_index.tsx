@@ -37,28 +37,17 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
     try {
       const auth = getAuth(firebase);
       await createUserWithEmailAndPassword(auth, user.email.value, user.senha.value);
-      
-      // Se a criação do usuário for bem-sucedida, então podemos prosseguir com a criação no banco de dados
-      const response = await axios.post("http://localhost:8800", {
-        nome: user.nome.value,
-        email: user.email.value,
-        senha: user.senha.value,
-      });
 
-      if (response.status === 200) {
-        if (user) {
-          user.nome.value = "";
-          user.email.value = "";
-          user.senha.value = "";
-        }
-
-        setOnEdit(null);
-        getUsers();
-
-        toast.success("Usuário cadastrado com sucesso!");
-      } else {
-        toast.error("Ocorreu um erro ao cadastrar o usuário.");
+      if (user) {
+        user.nome.value = "";
+        user.email.value = "";
+        user.senha.value = "";
       }
+
+      setOnEdit(null);
+      getUsers();
+
+      toast.success("Usuário cadastrado com sucesso!");
     } catch (error) {
       console.error("Erro:", error);
       toast.error("Ocorreu um erro ao cadastrar o usuário.");
@@ -101,13 +90,7 @@ function Cadastro() {
   const [onEdit, setOnEdit] = useState<User | null>(null);
 
   const getUsers = async () => {
-    try {
-      const res = await axios.get<User[]>("http://localhost:8800");
-      setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
-    } catch (error) {
-      console.error("Erro:", error);
-      toast.error("Ocorreu um erro ao obter os usuários.");
-    }
+
   };
 
   useEffect(() => {

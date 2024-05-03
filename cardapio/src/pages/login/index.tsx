@@ -1,24 +1,29 @@
 import { ChangeEvent, useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importando o hook useNavigate do react-router-dom
 import Header from '../../components/Header';
 import './styles.css';
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../main';
 
-
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  
+  const navigate = useNavigate(); // Inicializando o hook useNavigate
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in:', userCredential.user);
+      
+      // Redirecionando para a tela de home após o login bem-sucedido
+      navigate('/home');
     } catch (error) {
       console.error('Error logging in:');
+      setError('Email ou senha incorretos. Por favor, tente novamente.'); // Atualizando o estado de erro
     }
   };
 
