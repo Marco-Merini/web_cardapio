@@ -6,15 +6,11 @@ import MainRoutes from './routes';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import * as firebaseAuth from 'firebase/auth'
+import { getAuth } from 'firebase/auth';
 
-// Import the functions you need from the SDKs you need
-
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyA2MtzPb8Iol7WYcv0wjlo0YJPUsut4E2g",
   authDomain: "cardapio-e18af.firebaseapp.com",
@@ -24,8 +20,9 @@ export const firebaseConfig = {
   appId: "1:819590616702:web:29244936ad69915e58aa2f"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 export const auth = firebaseAuth.initializeAuth(app);
 firebaseAuth.signInWithEmailAndPassword(
@@ -40,4 +37,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
 );
 
-export default app;
+export default {app, db, auth};
