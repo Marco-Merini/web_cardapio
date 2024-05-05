@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './cadastro_styles.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
-import firebase from '../../main'; // caminho para o arquivo firebase.tsx
+import firebase, { auth } from '../../main';// caminho para o arquivo firebase.tsx
 
 interface User {
   id: number;

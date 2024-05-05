@@ -37,4 +37,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
 );
 
-export default {app, db, auth};
+export default app;
