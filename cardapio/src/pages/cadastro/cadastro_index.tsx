@@ -12,6 +12,7 @@ interface User {
   id: number;
   nome: string;
   email: string;
+  endereco: string;
   senha: string;
 }
 
@@ -30,7 +31,7 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
 
     const user = ref.current;
 
-    if (!user || !user.nome.value || !user.email.value || !user.senha.value) {
+    if (!user || !user.nome.value || !user.email.value || !user.endereco.value || !user.senha.value) {
       return toast.warn("Preencha todos os campos!");
     }
 
@@ -41,6 +42,7 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
       if (user) {
         user.nome.value = "";
         user.email.value = "";
+        user.endereco.value = "";
         user.senha.value = "";
       }
 
@@ -61,6 +63,7 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
       if (user) {
         user.nome.value = onEdit.nome;
         user.email.value = onEdit.email;
+        user.endereco.value = onEdit.endereco;
         user.senha.value = onEdit.senha;
       }
     }
@@ -75,6 +78,10 @@ const Form: React.FC<FormProps> = ({ getUsers, onEdit, setOnEdit }) => {
       <div className="InputEmail">
         <label>Email</label>
         <input name="email" type="email" />
+      </div>
+      <div className="InputEndereco">
+        <label>Endereço</label>
+        <input name="endereco" type="text" />
       </div>
       <div className="InputSenha">
         <label>Senha</label>

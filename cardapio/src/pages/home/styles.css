@@ -11,6 +11,7 @@
     justify-content: center;
     width: 100vw;
     min-height: calc(100vh - 64px);
+    color: white;
 }
 
 .Container {
@@ -33,7 +34,7 @@
 .SearchBar {
   width: 300px; 
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 5px;
   font-size: 16px;
 }
