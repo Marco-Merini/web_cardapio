@@ -1,24 +1,28 @@
-header {
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 64px;
     width: 100vw;
     padding: 16px;
-    background-color: rgb(218, 70, 50);
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.navbar h1 {
+  color: orange;
+  justify-content: space-between;
+}
+.navbar .links {
+  margin-left: auto;
+  color: rgb(255, 255, 255);
+  margin-right: 10vw;
 }
 
-header div {
-    display: flex;
-    gap: 8px;
-    margin-right: 150px;
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
 }
-
-header div a {
-    text-decoration: none;
-    color: white;
-}
-
-header div a:hover {
-    text-decoration: solid;
+.navbar a:hover {
+  color: orange;
+  text-decoration: solid;
 }

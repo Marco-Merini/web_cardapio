@@ -58,7 +58,12 @@ function Login() {
               <button type="submit" className="SubmitButton">Entrar</button>
             </form>
             {error && <p className="ErrorMessage">{error}</p>}
-            <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+            <p>
+              Não tem uma conta?{' '}
+            <a href="/cadastro" className="register">
+              Cadastre-se
+            </a>
+            </p>
           </div>
         </div>
       </div>
