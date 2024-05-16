@@ -1,28 +1,70 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    width: 100vw;
-    padding: 16px;
-    border-bottom: 2px solid rgb(255, 255, 255);
-}
-.navbar h1 {
-  color: orange;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 64px;
+  width: 100vw;
+  padding: 16px;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar .logo h4 {
+  color: orange;
+  margin-right: 10px; /* Espaçamento entre o texto e o ícone */
+}
+
+.navbar .logo img {
+  width: 45px;
+  height: 45px;
+}
+
 .navbar .links {
+  display: flex;
+  align-items: center;
   margin-left: auto;
-  color: rgb(255, 255, 255);
-  margin-right: 10vw;
+  margin-right: 5vw;
 }
 
 .navbar a {
-  margin-left: 16px;
+  margin-left: 30px;
   text-decoration: none;
-  padding: 6px;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease; /* Efeito de transição suave */
 }
+
 .navbar a:hover {
   color: orange;
-  text-decoration: solid;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-left: 16px; /* Ajuste para espaçamento */
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  padding: 0.0rem 0.3rem;
+  font-size: 1rem;
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

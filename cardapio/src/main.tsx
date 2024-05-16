@@ -2,12 +2,12 @@ import ReactDOM from 'react-dom/client';
 import './styles/global.css';
 import { BrowserRouter } from 'react-router-dom';
 import MainRoutes from './routes';
+import DataProvider from './pages/cart/DataProvider';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import * as firebaseAuth from 'firebase/auth'
 import { getAuth } from 'firebase/auth';
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
@@ -32,9 +32,11 @@ firebaseAuth.signInWithEmailAndPassword(
 .catch(error => console.log('error', error));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  <DataProvider>
     <BrowserRouter>
-        <MainRoutes />
+      <MainRoutes />
     </BrowserRouter>
+  </DataProvider>
 );
 
 export default app;
