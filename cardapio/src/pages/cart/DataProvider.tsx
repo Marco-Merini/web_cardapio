@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { FoodItems } from "./foodItems";
 
+import frango from '../../images/frango.jfif';
+import salada from '../../images/x-salada.jfif';
+import burguer from '../../images/X-burguer.jfif';
+
 interface AppState {
   topRated: FoodItems[];
   allCategories: FoodItems[];
@@ -24,21 +28,24 @@ function DataProvider({ children }: { children: React.ReactNode }) { // Alterar 
         name: 'Lanche de Frango',
         description: '100g', 
         preco: 15,
-        url: "/cardapio/src/images/frango.jfif",
+        url: frango,
+        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
         description: 'Peso: 90g',
         preco: 12,
-        url: "/cardapio/src/images/x-salada.jfif",
+        url: salada,
+        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
         description: 'Peso: 80g',
         preco: 14,
-        url: "/cardapio/src/images/X-burguer.jfif",
+        url: burguer,
+        image: burguer,
       },
     ],
     allCategories: [
@@ -47,21 +54,24 @@ function DataProvider({ children }: { children: React.ReactNode }) { // Alterar 
         name: 'Lanche de Frango',
         description: '100g', 
         preco: 15,
-        url: "/cardapio/src/images/frango.jfif",
+        url: frango,
+        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
         description: 'Peso: 90g',
         preco: 12,
-        url: "/cardapio/src/images/x-salada.jfif",
+        url: salada,
+        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
         description: 'Peso: 80g',
         preco: 14,
-        url: "/cardapio/src/images/X-burguer.jfif",
+        url: burguer,
+        image: burguer,
       },
     ],
     dishesNearYou: [
@@ -70,21 +80,24 @@ function DataProvider({ children }: { children: React.ReactNode }) { // Alterar 
         name: 'Lanche de Frango',
         description: '100g', 
         preco: 15,
-        url: "../../images/frango.jfif",
+        url: frango,
+        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
         description: 'Peso: 90g',
         preco: 12,
-        url: "/cardapio/src/images/x-salada.jfif",
+        url: salada,
+        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
         description: 'Peso: 80g',
         preco: 14,
-        url: "/cardapio/src/images/X-burguer.jfif",
+        url: burguer,
+        image: burguer,
       },
     ],
     cartItemCount: 0,

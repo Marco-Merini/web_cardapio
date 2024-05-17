@@ -5,6 +5,7 @@ import { DataContext } from '../../pages/cart/DataProvider';
 import './styles.css'
 
 import logoImage from '../../images/X-burguer.jfif';
+import cart from '../../images/cart.png';
 
 function NavBar() {
   const { cartItemCount } = useContext(DataContext);
@@ -26,15 +27,11 @@ function NavBar() {
             src={logoImage}
             width="100px"
             height="100px"
-            style={{ marginLeft: 10 }}
+            style={{ marginLeft: 0 }}
             alt="icon"
           />
         </div>
         <div className="links">
-          <Link
-            to="/home">
-            Home
-          </Link>
           <Link
             to="/">
             Login
@@ -45,9 +42,9 @@ function NavBar() {
           </Link>
           <Link
             to="/cart">
-            Carrinho
           </Link>
           <div className="cart-container" onClick={goToCart}>
+          <img src={cart} width="45px" height="45px" />
           <i className="fa fa-shopping-cart cart-icon"></i>
           <span className="cart-count">{cartItemCount}</span>
         </div>
