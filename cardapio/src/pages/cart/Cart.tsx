@@ -5,6 +5,8 @@ import swal from "sweetalert";
 import { DataContext } from "./DataProvider";
 import "./Cart.css";
 
+import cart from '../../images/cart.png';
+
 function Cart() {
   const { cartItems, addToCart, removeItem } = useContext(DataContext);
 
@@ -29,11 +31,13 @@ function Cart() {
           />
         ) : (
           <div className="container my-5" style={{ textAlign: "center" }}>
-            <img src="/assets/shopping-cart.png" width="200px" alt="icon" />
+            <img src={cart} 
+            width="100px" 
+            alt="icon" />
             <div className="mt-4">
-              <h4 className="orange-red fw-600">Your cart is empty</h4>
+              <h4 className="orange-red fw-600">Seu carrinho está vazio</h4>
               <h5 className="darkblue fw-600">
-                You can go to home page to view more food items.
+                Você pode ir até a pagina inicial para visualizar mais itens.
               </h5>
             </div>
           </div>
@@ -55,7 +59,7 @@ const CartWithItems = ({
   totalpreco: number;
 }) => {
   const checkout = () => {
-    swal("Good job!", "Your order is placed successfully!", "success").then(
+    swal("Boa!", "Seu pedido foi realizado com sucesso!", "success").then(
       () => {
         window.location.href = "/cart";
       }
@@ -64,11 +68,9 @@ const CartWithItems = ({
 
   return (
     <div className="container mb-5">
-      <h4 className="my-4 my-cart">My Cart</h4>
+      <h4 className="my-4 my-cart">Meu carrinho</h4>
       <div className="d-flex my-3" style={{ justifyContent: "space-between" }}>
-        <h4 className="fw-600">Summary</h4>
-        <h4 className="fw-600" style={{ marginRight: "49%" }}>Cart</h4>
-      </div>
+    </div>
       <div className="d-flex">
         <div className="row" style={{ width: "50%" }}>
           <div className="col-md-4">
@@ -79,11 +81,10 @@ const CartWithItems = ({
             <h6>Subtotal:</h6>
           </div>
           <div className="col-md-4">
-            <h6>Rs {totalpreco}</h6>
-            <h6>SWEETDISH</h6>
-            <h6>Rs 50</h6>
+            <h6>R$ {totalpreco},00</h6>
+            <h6>Frete:</h6>
+            <h6>Ebaaa, você ganhou frete grátis!</h6>
             <div className="my-3 line w-60"></div>
-            <h6>Rs {totalpreco + 50}</h6>
           </div>
         </div>
         <div className="row" style={{ width: "50%" }}>
@@ -99,7 +100,7 @@ const CartWithItems = ({
                       style={{ borderRadius: "50%" }}
                       alt="icon"
                     />
-                    <h6 className="mt-15">{"Cake"}</h6>
+                    <h6 className="mt-15">{item.name}</h6>
                     <div className="d-flex mt-10">
                       <button
                         className="remove"
@@ -117,7 +118,7 @@ const CartWithItems = ({
                         +
                       </button>
                     </div>
-                    <h6 className="mt-15">{item.quantity! * item.preco}</h6>
+                    <h6 className="mt-15">{item.quantity! * item.preco},00</h6>
                   </div>
                   <div className="line"></div>
                 </li>
@@ -128,7 +129,7 @@ const CartWithItems = ({
       </div>
       <div className="d-flex justify-content-end" style={{ width: "80%", marginTop: "2%" }}>
         <button onClick={checkout} className="btn btn-primary" type="button">
-          Checkout
+          Finalizar compra!
         </button>
       </div>
     </div>
