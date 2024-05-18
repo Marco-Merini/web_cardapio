@@ -11,7 +11,7 @@
   
     color-scheme: light dark;
     color: orange;
-    background-color: rgba(0, 0, 0, 0);
+    background: #363636;
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -33,6 +33,7 @@
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+    font-family: 'SF Pro', sans-serif;
   }
   
   h1 {

@@ -74,16 +74,13 @@ const CartWithItems = ({
       <div className="d-flex">
         <div className="row" style={{ width: "50%" }}>
           <div className="col-md-4">
-            <h6>Total:</h6>
-            <h6>Promo Code:</h6>
-            <h6>Shipping:</h6>
+            <h6>Total: R$ {totalpreco},00</h6>
+            <h6>Cupom/Desconto:</h6>
             <div className="my-3 line w-120"></div>
-            <h6>Subtotal:</h6>
+            <h6>Subtotal: R$ {totalpreco},00</h6>
           </div>
           <div className="col-md-4">
-            <h6>R$ {totalpreco},00</h6>
-            <h6>Frete:</h6>
-            <h6>Ebaaa, você ganhou frete grátis!</h6>
+            <h6>Frete: Ebaaa, você ganhou frete grátis!</h6>
             <div className="my-3 line w-60"></div>
           </div>
         </div>

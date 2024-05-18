@@ -24,12 +24,7 @@ function NavBar() {
         <div onClick={goToHome} className="logo">
           <h4 className="sweet">Cardápios</h4>
           <img
-            src={logoImage}
-            width="100px"
-            height="100px"
-            style={{ marginLeft: 0 }}
-            alt="icon"
-          />
+            src={logoImage}/>
         </div>
         <div className="links">
           <Link
@@ -44,8 +39,9 @@ function NavBar() {
             to="/cart">
           </Link>
           <div className="cart-container" onClick={goToCart}>
-          <img src={cart} width="45px" height="45px" />
-          <i className="fa fa-shopping-cart cart-icon"></i>
+          <i className="fa fa-shopping-cart cart-icon">
+          <img src={cart} className="cart-icon" alt="cart icon"/>
+          </i>
           <span className="cart-count">{cartItemCount}</span>
         </div>
         </div>
