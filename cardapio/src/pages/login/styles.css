@@ -13,6 +13,11 @@
     min-height: calc(100vh - 64px);
 }
 
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
 .CenteredContainer {
     display: flex;
     justify-content: center;
@@ -23,10 +28,11 @@
   .LoginContainer {
     width: 300px;
     padding: 20px;
-    background-color: #00000000;
+    background-color: #0000004b;
     border: 1px solid #00000028;
     border-radius: 5px;
     color: white;
+    margin-top: -100px;
   }
   
   .Title {

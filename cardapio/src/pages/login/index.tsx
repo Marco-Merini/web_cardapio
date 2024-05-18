@@ -11,7 +11,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   
-  const navigate = useNavigate(); // Inicializando o hook useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +19,6 @@ function Login() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in:', userCredential.user);
       
-      // Redirecionando para a tela de home após o login bem-sucedido
       navigate('/home');
     } catch (error) {
       console.error('Error logging in:');

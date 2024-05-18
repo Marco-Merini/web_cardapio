@@ -1,17 +1,18 @@
 .container-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .content-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    min-height: calc(100vh - 64px);
-    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: calc(100vh - 64px);
+  color: white;
 }
 
 .Container {
@@ -19,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  width: 100%;
 }
 
 .Header {
@@ -32,11 +34,12 @@
 }
 
 .SearchBar {
-  width: 300px; 
+  width: 300px;
   padding: 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   font-size: 16px;
+  background: #363636;
 }
 
 .Link {
@@ -60,21 +63,27 @@
 
 .Main {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .ProductContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px; /* Adiciona um espaço uniforme entre os produtos */
   width: 100%;
 }
 
 .ProductCard {
-  width: calc(33.33% - 40px);
+  width: 300px;
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #222; /* Adiciona um fundo para melhor visibilidade */
+  color: white; /* Garante que o texto seja visível no fundo escuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar os cartões */
 }
 
 .ProductImage {
@@ -84,8 +93,22 @@
 
 .ProductName {
   margin-top: 10px;
+  font-size: 16px; /* Tamanho de fonte anterior */
 }
 
 .ProductDescription {
   margin-top: 10px;
+  font-size: 14px; /* Tamanho de fonte anterior */
+}
+
+@media (max-width: 768px) {
+  .ProductCard {
+      width: calc(50% - 20px); /* Ajusta a largura dos cartões em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .ProductCard {
+      width: calc(100% - 20px); /* Ajusta a largura dos cartões em telas muito pequenas */
+  }
 }
