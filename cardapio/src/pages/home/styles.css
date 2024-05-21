@@ -71,7 +71,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Adiciona um espaço uniforme entre os produtos */
+  gap: 20px;
   width: 100%;
 }
 
@@ -81,9 +81,9 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #222; /* Adiciona um fundo para melhor visibilidade */
-  color: white; /* Garante que o texto seja visível no fundo escuro */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar os cartões */
+  background-color: #222;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .ProductImage {
@@ -93,22 +93,32 @@
 
 .ProductName {
   margin-top: 10px;
-  font-size: 16px; /* Tamanho de fonte anterior */
+  font-size: 16px;
 }
 
 .ProductDescription {
   margin-top: 10px;
-  font-size: 14px; /* Tamanho de fonte anterior */
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 768px) {
   .ProductCard {
-      width: calc(50% - 20px); /* Ajusta a largura dos cartões em telas menores */
+      width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
   .ProductCard {
-      width: calc(100% - 20px); /* Ajusta a largura dos cartões em telas muito pequenas */
+      width: calc(100% - 20px);
   }
+}
+
+.add-cart {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0px;
+  border: none;
 }
