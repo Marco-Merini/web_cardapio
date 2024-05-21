@@ -1,7 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './styles.css';
 import Header from '../../components/Header';
 import { DataContext } from '../../pages/cart/DataProvider';
+import { FoodItems } from "../cart/foodItems";
 
 const Home = () => {
   const { allCategories, addToCart } = useContext(DataContext);
@@ -37,16 +38,17 @@ const Home = () => {
           </div>
           <div className="Main">
             <div className="ProductContainer">
-              {filteredProducts.map((item) => (
+              {filteredProducts.map((item: FoodItems) => (
                 <div className="ProductCard" key={item.id}>
                   <img className="ProductImage" src={item.url} alt={item.name} />
                   <div className="ProductName">{item.name}</div>
                   <div className="ProductDescription">
-                    Peso: {item.description} <br />
                     Preço: R$ {item.preco},00 <br />
-                    Descrição: {item.description}
+                    Descrição: {item.description} <br />
                   </div>
+                  <div className='add-cart'>
                   <button onClick={() => addToCart(item)}>Adicionar ao Carrinho</button>
+                  </div>
                 </div>
               ))}
             </div>

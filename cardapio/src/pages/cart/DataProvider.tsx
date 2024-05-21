@@ -4,6 +4,7 @@ import { FoodItems } from "./foodItems";
 import frango from '../../images/frango.jfif';
 import salada from '../../images/x-salada.jfif';
 import burguer from '../../images/X-burguer.jfif';
+import coca from '../../images/coca-2l.jfif';
 
 interface AppState {
   topRated: FoodItems[];
@@ -20,84 +21,100 @@ interface AppContext extends AppState {
 
 export const DataContext = React.createContext<AppContext>({} as AppContext);
 
-function DataProvider({ children }: { children: React.ReactNode }) { // Alterar JSX.Element para React.ReactNode
+function DataProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AppState>({
     topRated: [
       {
         id: 1,
         name: 'Lanche de Frango',
-        description: '100g', 
+        description: '100g',
         preco: 15,
+        quantity: 12,
         url: frango,
-        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
-        description: 'Peso: 90g',
+        description: '90g',
         preco: 12,
+        quantity: 12,
         url: salada,
-        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
-        description: 'Peso: 80g',
+        description: '80g',
         preco: 14,
+        quantity: 12,
         url: burguer,
-        image: burguer,
       },
     ],
     allCategories: [
       {
         id: 1,
         name: 'Lanche de Frango',
-        description: '100g', 
+        description: '100g',
         preco: 15,
+        quantity: 12,
         url: frango,
-        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
-        description: 'Peso: 90g',
+        description: '90g',
         preco: 12,
+        quantity: 12,
         url: salada,
-        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
-        description: 'Peso: 80g',
+        description: '80g',
         preco: 14,
+        quantity: 12,
         url: burguer,
-        image: burguer,
+      },
+      {
+        id: 4,
+        name: 'Coca-Cola',
+        description: '2L',
+        preco: 10,
+        quantity: 12,
+        url: coca,
+      },
+      {
+        id: 5,
+        name: 'Coca-Cola',
+        description: '1L',
+        preco: 8,
+        quantity: 12,
+        url: coca,
       },
     ],
     dishesNearYou: [
       {
         id: 1,
         name: 'Lanche de Frango',
-        description: '100g', 
+        description: '100g',
         preco: 15,
+        quantity: 12,
         url: frango,
-        image: frango,
       },
       {
         id: 2,
         name: 'X-Salada',
-        description: 'Peso: 90g',
+        description: '90g',
         preco: 12,
+        quantity: 12,
         url: salada,
-        image: salada,
       },
       {
         id: 3,
         name: 'X-Burguer',
-        description: 'Peso: 80g',
+        description: '80g',
         preco: 14,
+        quantity: 12,
         url: burguer,
-        image: burguer,
       },
     ],
     cartItemCount: 0,

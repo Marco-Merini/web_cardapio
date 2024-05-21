@@ -1,14 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Header from "../../components/Header";
 import { FoodItems } from "./foodItems";
 import swal from "sweetalert";
 import { DataContext } from "./DataProvider";
+import { AuthContext } from '../login/AuthProvider';
 import "./Cart.css";
 
 import cart from '../../images/cart.png';
 
 function Cart() {
   const { cartItems, addToCart, removeItem } = useContext(DataContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+      swal("Aviso", "Você precisa estar logado para acessar o carrinho", "warning");
+    }
+  }, [user, navigate]);
 
   const totalpreco = () => {
     let preco = 0;
@@ -17,6 +28,10 @@ function Cart() {
     });
     return preco;
   };
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="d-flex cart-outer-div">
@@ -61,7 +76,7 @@ const CartWithItems = ({
   const checkout = () => {
     swal("Boa!", "Seu pedido foi realizado com sucesso!", "success").then(
       () => {
-        window.location.href = "/cart";
+        window.location.href = "/home";
       }
     );
   };

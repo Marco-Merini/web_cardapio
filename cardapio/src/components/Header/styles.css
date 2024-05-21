@@ -5,7 +5,7 @@
   height: 64px;
   width: 100vw;
   padding: 16px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.034);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.116);
 }
 
 .navbar .logo {
@@ -24,22 +24,23 @@
   height: 55px;
 }
 
+.navbar a:hover {
+  color: orange;
+}
+
 .navbar .links {
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-right: 20px;
 }
 
-.navbar a {
-  margin-left: 30px;
+.links a {
+  margin-left: 10px;
   text-decoration: none;
   color: rgb(255, 255, 255);
   transition: color 0.3s ease;
   font-weight: bold;
-}
-
-.navbar a:hover {
-  color: orange;
 }
 
 .cart-container {
@@ -47,27 +48,38 @@
   align-items: center;
   cursor: pointer;
   position: relative;
-  margin-left: -10px;
+  margin-left: 20px;
+
 }
 
 .cart-icon {
   width: 30px;
   height: 30px;
-  margin-right: 50px;
+  margin-right: 0px;
 }
 
 .cart-count {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border-radius: 50%; /* Define o raio para fazer um círculo */
-  padding: 0.5rem; /* Ajuste o padding para controlar o tamanho do círculo */
-  font-size: 0.8rem; /* Ajuste o tamanho da fonte para caber dentro do círculo */
-  width: 1.2rem; /* Define a largura do círculo */
-  height: 1.2rem; /* Define a altura do círculo */
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
   position: absolute;
   top: -10px;
-  margin-left: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  right: -10px;
+}
+
+.username {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.logout-button {
+  display: block;
+  margin-top: 5px;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
 }

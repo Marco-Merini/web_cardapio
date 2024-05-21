@@ -3,11 +3,12 @@ import './styles/global.css';
 import { BrowserRouter } from 'react-router-dom';
 import MainRoutes from './routes';
 import DataProvider from './pages/cart/DataProvider';
+import { AuthProvider } from './pages/login/AuthProvider';
 
-import firebase from 'firebase/app';
+
 import 'firebase/firestore';
 import * as firebaseAuth from 'firebase/auth'
-import { getAuth } from 'firebase/auth';
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
@@ -26,17 +27,19 @@ const db = getFirestore(app);
 
 export const auth = firebaseAuth.initializeAuth(app);
 firebaseAuth.signInWithEmailAndPassword(
-  auth, 'marco@gmail.com', 'marco123'
+  auth, 'example@gmail.com', 'marco123'
 )
 .then(user => console.log(user))
 .catch(error => console.log('error', error));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <DataProvider>
-    <BrowserRouter>
-      <MainRoutes />
-    </BrowserRouter>
-  </DataProvider>
+  <AuthProvider>
+    <DataProvider>
+      <BrowserRouter>
+        <MainRoutes />
+      </BrowserRouter>
+    </DataProvider>
+  </AuthProvider>
 );
 
 export default app;
