@@ -17,7 +17,7 @@ function Cart() {
   useEffect(() => {
     if (!user) {
       navigate('/');
-      swal("Aviso", "Você precisa estar logado para acessar o carrinho", "warning");
+      swal("Aviso", "Você precisa estar logado para continuar as compras", "warning");
     }
   }, [user, navigate]);
 

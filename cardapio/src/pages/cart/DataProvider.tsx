@@ -9,7 +9,6 @@ import coca from '../../images/coca-2l.jfif';
 interface AppState {
   topRated: FoodItems[];
   allCategories: FoodItems[];
-  dishesNearYou: FoodItems[];
   cartItemCount: number;
   cartItems: FoodItems[];
 }
@@ -29,24 +28,24 @@ function DataProvider({ children }: { children: React.ReactNode }) {
         name: 'Lanche de Frango',
         description: '100g',
         preco: 15,
-        quantity: 12,
         url: frango,
+        rate: 5
       },
       {
         id: 2,
         name: 'X-Salada',
         description: '90g',
         preco: 12,
-        quantity: 12,
         url: salada,
+        rate: 5
       },
       {
         id: 3,
         name: 'X-Burguer',
         description: '80g',
         preco: 14,
-        quantity: 12,
         url: burguer,
+        rate: 5
       },
     ],
     allCategories: [
@@ -55,32 +54,32 @@ function DataProvider({ children }: { children: React.ReactNode }) {
         name: 'Lanche de Frango',
         description: '100g',
         preco: 15,
-        quantity: 12,
         url: frango,
+        rate: 5
       },
       {
         id: 2,
         name: 'X-Salada',
         description: '90g',
         preco: 12,
-        quantity: 12,
         url: salada,
+        rate: 5
       },
       {
         id: 3,
         name: 'X-Burguer',
         description: '80g',
         preco: 14,
-        quantity: 12,
         url: burguer,
+        rate: 5
       },
       {
         id: 4,
         name: 'Coca-Cola',
         description: '2L',
         preco: 10,
-        quantity: 12,
         url: coca,
+        rate: 5
       },
       {
         id: 5,
@@ -89,37 +88,15 @@ function DataProvider({ children }: { children: React.ReactNode }) {
         preco: 8,
         quantity: 12,
         url: coca,
-      },
-    ],
-    dishesNearYou: [
-      {
-        id: 1,
-        name: 'Lanche de Frango',
-        description: '100g',
-        preco: 15,
-        quantity: 12,
-        url: frango,
-      },
-      {
-        id: 2,
-        name: 'X-Salada',
-        description: '90g',
-        preco: 12,
-        quantity: 12,
-        url: salada,
-      },
-      {
-        id: 3,
-        name: 'X-Burguer',
-        description: '80g',
-        preco: 14,
-        quantity: 12,
-        url: burguer,
+        rate: 5
       },
     ],
     cartItemCount: 0,
     cartItems: [],
   });
+
+  const { topRated, allCategories, cartItemCount, cartItems } =
+    state;
 
   const addToCart = (item: FoodItems) => {
     const updatedCartItems = [...state.cartItems];
@@ -156,7 +133,10 @@ function DataProvider({ children }: { children: React.ReactNode }) {
   return (
     <DataContext.Provider
       value={{
-        ...state,
+        topRated,
+        allCategories,
+        cartItemCount,
+        cartItems,
         addToCart,
         removeItem,
       }}
