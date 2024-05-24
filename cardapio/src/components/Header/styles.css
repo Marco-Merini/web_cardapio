@@ -72,6 +72,7 @@
 .username {
   margin-left: 1rem;
   cursor: pointer;
+  color: orange;
 }
 
 .logout-button {

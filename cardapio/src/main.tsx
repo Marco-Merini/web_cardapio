@@ -21,13 +21,13 @@ export const firebaseConfig = {
   appId: "1:819590616702:web:29244936ad69915e58aa2f"
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export const auth = firebaseAuth.initializeAuth(app);
 firebaseAuth.signInWithEmailAndPassword(
-  auth, 'example@gmail.com', 'marco123'
+  auth, 'example@gmail.com', '123456'
 )
 .then(user => console.log(user))
 .catch(error => console.log('error', error));

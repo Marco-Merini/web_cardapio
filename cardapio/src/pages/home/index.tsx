@@ -52,10 +52,18 @@ const Home = () => {
             </div>
           </div>
           <div className="Main">
+          <div className="ProductSection">
+              <h4 className='todos'>Todos</h4>
+              <div className="ProductContainer">
+                {filteredProducts.map((item: FoodItems) => (
+                  <ProductCard key={item.id} item={item} addToCart={addToCart} />
+                ))}
+              </div>
+            </div>
             <div className="ProductSection">
               <h4 className='mais-pedidos'>Mais pedidos</h4>
               <div className="ProductContainer">
-                {topRated.map((item: FoodItems) => (
+                {filteredProducts.map((item: FoodItems) => (
                   <ProductCard key={item.id} item={item} addToCart={addToCart} />
                 ))}
               </div>
