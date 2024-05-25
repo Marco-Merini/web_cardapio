@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './styles.css';
 import Header from '../../components/Header';
 import { DataContext } from '../../pages/cart/DataProvider';
@@ -52,7 +52,7 @@ const Home = () => {
             </div>
           </div>
           <div className="Main">
-          <div className="ProductSection">
+            <div className="ProductSection">
               <h4 className='todos'>Todos</h4>
               <div className="ProductContainer">
                 {filteredProducts.map((item: FoodItems) => (
@@ -63,7 +63,7 @@ const Home = () => {
             <div className="ProductSection">
               <h4 className='mais-pedidos'>Mais pedidos</h4>
               <div className="ProductContainer">
-                {filteredProducts.map((item: FoodItems) => (
+                {topRated.map((item: FoodItems) => (
                   <ProductCard key={item.id} item={item} addToCart={addToCart} />
                 ))}
               </div>
@@ -71,7 +71,7 @@ const Home = () => {
             <div className="ProductSection">
               <h4 className='para-voce'>Para você</h4>
               <div className="ProductContainer">
-                {filteredProducts.map((item: FoodItems) => (
+                {allCategories.map((item: FoodItems) => (
                   <ProductCard key={item.id} item={item} addToCart={addToCart} />
                 ))}
               </div>
