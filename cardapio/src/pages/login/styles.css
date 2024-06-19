@@ -1,16 +1,18 @@
 .container-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .content-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: calc(100vh - 64px);
+  color: white;
 }
 
 body {
@@ -73,4 +75,5 @@ body {
 .register {
   color: rgba(0, 255, 13, 0.678)
 }
+
   

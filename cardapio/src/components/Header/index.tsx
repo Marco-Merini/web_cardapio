@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { DataContext } from '../../pages/cart/DataProvider';
 import { AuthContext } from '../../pages/login/AuthProvider';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../main';
+import { auth } from '../../config/firebase';
 import './styles.css';
 
 import logoImage from '../../images/X-burguer.jfif';
@@ -21,6 +21,10 @@ function NavBar() {
 
   const goToCart = () => {
     navigate("/cart");
+  };
+
+  const goToAdmin = () => {
+    navigate("/adminDashboard");
   };
 
   const handleLogout = async () => {
@@ -61,6 +65,11 @@ function NavBar() {
               </button>
             )}
           </>
+        )}
+        {user && (
+          <button onClick={goToAdmin} className="admin-button">
+            Admin
+          </button>
         )}
         <div className="cart-container" onClick={goToCart}>
           <img src={cart} className="cart-icon" alt="cart icon" />

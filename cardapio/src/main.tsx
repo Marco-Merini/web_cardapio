@@ -4,42 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import MainRoutes from './routes';
 import DataProvider from './pages/cart/DataProvider';
 import { AuthProvider } from './pages/login/AuthProvider';
-
-
-import 'firebase/firestore';
-import * as firebaseAuth from 'firebase/auth'
-
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyA2MtzPb8Iol7WYcv0wjlo0YJPUsut4E2g",
-  authDomain: "cardapio-e18af.firebaseapp.com",
-  projectId: "cardapio-e18af",
-  storageBucket: "cardapio-e18af.appspot.com",
-  messagingSenderId: "819590616702",
-  appId: "1:819590616702:web:29244936ad69915e58aa2f"
-};
-
-export const app = initializeApp(firebaseConfig);
-
-export const db = getFirestore(app);
-
-export const auth = firebaseAuth.initializeAuth(app);
-firebaseAuth.signInWithEmailAndPassword(
-  auth, 'example@gmail.com', '123456'
-)
-.then(user => console.log(user))
-.catch(error => console.log('error', error));
+import UsersProvider from './clients/UsersProvider';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <AuthProvider>
     <DataProvider>
-      <BrowserRouter>
-        <MainRoutes />
-      </BrowserRouter>
+      <UsersProvider>
+        <BrowserRouter>
+          <MainRoutes />
+        </BrowserRouter>
+      </UsersProvider>
     </DataProvider>
   </AuthProvider>
 );
-
-export default app;

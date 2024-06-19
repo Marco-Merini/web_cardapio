@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import './styles.css';
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../../main';
+import { auth } from '../../config/firebase';
 
 function Login() {
   const [email, setEmail] = useState('');

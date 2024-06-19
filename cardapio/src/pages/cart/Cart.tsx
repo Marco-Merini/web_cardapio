@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { FoodItems } from "./foodItems";
 import swal from "sweetalert";
 import { DataContext } from "./DataProvider";
-import { AuthContext } from '../login/AuthProvider';
+import { AuthContext } from "../login/AuthProvider";
 import "./Cart.css";
 
-import cart from '../../images/cart.png';
+import cart from "../../images/cart.png";
 
 function Cart() {
   const { cartItems, addToCart, removeItem } = useContext(DataContext);
@@ -16,7 +16,7 @@ function Cart() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/');
+      navigate("/");
       swal("Aviso", "Você precisa estar logado para continuar as compras", "warning");
     }
   }, [user, navigate]);
@@ -33,6 +33,12 @@ function Cart() {
     return null;
   }
 
+  const checkout = () => {
+    swal("Boa!", "Seu pedido foi realizado com sucesso!", "success").then(() => {
+      window.location.href = "/home";
+    });
+  };
+
   return (
     <div className="d-flex cart-outer-div">
       <Header />
@@ -46,17 +52,20 @@ function Cart() {
           />
         ) : (
           <div className="container my-5" style={{ textAlign: "center" }}>
-            <img src={cart} 
-            width="100px" 
-            alt="icon" />
+            <img src={cart} width="100px" alt="icon" />
             <div className="mt-4">
               <h4 className="orange-red fw-600">Seu carrinho está vazio</h4>
               <h5 className="darkblue fw-600">
-                Você pode ir até a pagina inicial para visualizar mais itens.
+                Você pode ir até a página inicial para visualizar mais itens.
               </h5>
             </div>
           </div>
         )}
+      </div>
+      <div className="d-flex justify-content-end" style={{ width: "80%", marginTop: "2%" }}>
+        <button onClick={checkout} className="btn btn-primary" type="button">
+          Finalizar compra!
+        </button>
       </div>
     </div>
   );
@@ -73,19 +82,10 @@ const CartWithItems = ({
   removeItem: (item: FoodItems) => void;
   totalpreco: number;
 }) => {
-  const checkout = () => {
-    swal("Boa!", "Seu pedido foi realizado com sucesso!", "success").then(
-      () => {
-        window.location.href = "/home";
-      }
-    );
-  };
-
   return (
     <div className="container mb-5">
       <h4 className="my-4 my-cart">Meu carrinho</h4>
-      <div className="d-flex my-3" style={{ justifyContent: "space-between" }}>
-    </div>
+      <div className="d-flex my-3" style={{ justifyContent: "space-between" }}></div>
       <div className="d-flex">
         <div className="row" style={{ width: "50%" }}>
           <div className="col-md-4">
@@ -138,11 +138,6 @@ const CartWithItems = ({
             </ul>
           </div>
         </div>
-      </div>
-      <div className="d-flex justify-content-end" style={{ width: "80%", marginTop: "2%" }}>
-        <button onClick={checkout} className="btn btn-primary" type="button">
-          Finalizar compra!
-        </button>
       </div>
     </div>
   );

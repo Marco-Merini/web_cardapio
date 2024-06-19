@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  overflow-y: auto; /* Permite rolar a página */
+  overflow-y: auto;
 }
 
 .content-home {
@@ -14,7 +14,7 @@
   width: 100vw;
   min-height: calc(100vh - 64px);
   color: white;
-  overflow-y: auto; /* Permite rolar a área de conteúdo */
+  overflow-y: auto;
 }
 
 .Container {
@@ -76,7 +76,7 @@
 
 .ProductSection h4 {
   margin-bottom: 20px;
-  text-align: center; /* Alinha o título ao centro */
+  text-align: center;
 }
 
 .ProductContainer {
