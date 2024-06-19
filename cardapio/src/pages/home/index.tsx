@@ -20,7 +20,7 @@ const ProductCard = ({ item, addToCart }: { item: FoodItems; addToCart: (item: F
 );
 
 const Home = () => {
-  const { allCategories, addToCart, topRated } = useContext(DataContext);
+  const { allCategories, addToCart } = useContext(DataContext);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(allCategories);
 
@@ -56,23 +56,7 @@ const Home = () => {
               <h4 className='todos'>Todos</h4>
               <div className="ProductContainer">
                 {filteredProducts.map((item: FoodItems) => (
-                  <ProductCard key={item.id} item={item} addToCart={addToCart} />
-                ))}
-              </div>
-            </div>
-            <div className="ProductSection">
-              <h4 className='mais-pedidos'>Mais pedidos</h4>
-              <div className="ProductContainer">
-                {topRated.map((item: FoodItems) => (
-                  <ProductCard key={item.id} item={item} addToCart={addToCart} />
-                ))}
-              </div>
-            </div>
-            <div className="ProductSection">
-              <h4 className='para-voce'>Para você</h4>
-              <div className="ProductContainer">
-                {allCategories.map((item: FoodItems) => (
-                  <ProductCard key={item.id} item={item} addToCart={addToCart} />
+                  <ProductCard key={item.productId} item={item} addToCart={addToCart} />
                 ))}
               </div>
             </div>

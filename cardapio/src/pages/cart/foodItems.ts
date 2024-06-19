@@ -1,5 +1,5 @@
 export interface FoodItems {
-  id: number;
+  productId: number;
   name: string;
   preco: number;
   description: string;

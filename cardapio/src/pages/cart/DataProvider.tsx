@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FoodItems } from "./foodItems";
-
-import frango from '../../images/frango.jfif';
-import salada from '../../images/x-salada.jfif';
-import burguer from '../../images/X-burguer.jfif';
-import coca from '../../images/coca-2l.jfif';
+import { getDatabase, ref, get, set, update, remove } from "firebase/database";
 
 interface AppState {
-  topRated: FoodItems[];
   allCategories: FoodItems[];
   cartItemCount: number;
   cartItems: FoodItems[];
@@ -16,91 +11,49 @@ interface AppState {
 interface AppContext extends AppState {
   addToCart: (item: FoodItems) => void;
   removeItem: (item: FoodItems) => void;
+  addProduct: (productType:'allCategories', productData: FoodItems) => void;
+  updateProduct: (productType:'allCategories', productData: FoodItems) => void;
+  removeProduct: (productType:'allCategories', productId: number) => void;
 }
 
 export const DataContext = React.createContext<AppContext>({} as AppContext);
 
-function DataProvider({ children }: { children: React.ReactNode }) {
+const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, setState] = useState<AppState>({
-    topRated: [
-      {
-        id: 1,
-        name: 'Lanche de Frango',
-        description: '100g',
-        preco: 15,
-        url: frango,
-        rate: 5
-      },
-      {
-        id: 2,
-        name: 'X-Salada',
-        description: '90g',
-        preco: 12,
-        url: salada,
-        rate: 5
-      },
-      {
-        id: 3,
-        name: 'X-Burguer',
-        description: '80g',
-        preco: 14,
-        url: burguer,
-        rate: 5
-      },
-    ],
-    allCategories: [
-      {
-        id: 1,
-        name: 'Lanche de Frango',
-        description: '100g',
-        preco: 15,
-        url: frango,
-        rate: 5
-      },
-      {
-        id: 2,
-        name: 'X-Salada',
-        description: '90g',
-        preco: 12,
-        url: salada,
-        rate: 5
-      },
-      {
-        id: 3,
-        name: 'X-Burguer',
-        description: '80g',
-        preco: 14,
-        url: burguer,
-        rate: 5
-      },
-      {
-        id: 4,
-        name: 'Coca-Cola',
-        description: '2L',
-        preco: 10,
-        url: coca,
-        rate: 5
-      },
-      {
-        id: 5,
-        name: 'Coca-Cola',
-        description: '1L',
-        preco: 8,
-        quantity: 12,
-        url: coca,
-        rate: 5
-      },
-    ],
+    allCategories: [],
     cartItemCount: 0,
     cartItems: [],
   });
 
-  const { topRated, allCategories, cartItemCount, cartItems } =
-    state;
+  const db = getDatabase();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const allCategoriesData: FoodItems[] = [];
+      const allCategoriesRef = ref(db, 'allCategories');
+
+      await Promise.all([
+        get(allCategoriesRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+              allCategoriesData.push(childSnapshot.val());
+            });
+          }
+        }),
+      ]);
+
+      setState((prevState) => ({
+        ...prevState,
+        allCategories: allCategoriesData,
+      }));
+    };
+
+    fetchData();
+  }, [db]);
 
   const addToCart = (item: FoodItems) => {
     const updatedCartItems = [...state.cartItems];
-    const itemIndex = updatedCartItems.findIndex((el) => el.id === item.id);
+    const itemIndex = updatedCartItems.findIndex((el) => el.productId === item.productId);
     if (itemIndex >= 0) {
       updatedCartItems[itemIndex].quantity! += 1;
     } else {
@@ -115,7 +68,7 @@ function DataProvider({ children }: { children: React.ReactNode }) {
 
   const removeItem = (item: FoodItems) => {
     const updatedCartItems = [...state.cartItems];
-    const itemIndex = updatedCartItems.findIndex((el) => el.id === item.id);
+    const itemIndex = updatedCartItems.findIndex((el) => el.productId === item.productId);
     if (itemIndex >= 0) {
       if (updatedCartItems[itemIndex].quantity! > 1) {
         updatedCartItems[itemIndex].quantity! -= 1;
@@ -130,20 +83,67 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const addProduct = (productType:'allCategories', productData: FoodItems) => {
+    const productRef = ref(db, `${productType}/${productData.productId}`);
+    set(productRef, productData)
+      .then(() => {
+        console.log(`${productData.name} added successfully to ${productType}`);
+        setState((prevState) => ({
+          ...prevState,
+          [productType]: [...prevState[productType], productData],
+        }));
+      })
+      .catch((error) => {
+        console.error(`Error adding ${productData.name} to ${productType}:`, error);
+      });
+  };
+
+  const updateProduct = (productType:'allCategories', productData: FoodItems) => {
+    const productRef = ref(db, `${productType}/${productData.productId}`);
+    update(productRef, productData)
+      .then(() => {
+        console.log(`${productData.name} updated successfully in ${productType}`);
+        setState((prevState) => ({
+          ...prevState,
+          [productType]: prevState[productType].map((product) =>
+            product.productId === productData.productId ? productData : product
+          ),
+        }));
+      })
+      .catch((error) => {
+        console.error(`Error updating ${productData.name} in ${productType}:`, error);
+      });
+  };
+
+  const removeProduct = (productType:'allCategories', productId: number) => {
+    const productRef = ref(db, `${productType}/${productId}`);
+    remove(productRef)
+      .then(() => {
+        console.log(`Product with ID ${productId} removed successfully from ${productType}`);
+        setState((prevState) => ({
+          ...prevState,
+          [productType]: prevState[productType].filter((product) => product.productId !== productId),
+        }));
+      })
+      .catch((error) => {
+        console.error(`Error removing product with ID ${productId} from ${productType}:`, error);
+      });
+  };
+
   return (
     <DataContext.Provider
       value={{
-        topRated,
-        allCategories,
-        cartItemCount,
-        cartItems,
+        ...state,
         addToCart,
         removeItem,
+        addProduct,
+        updateProduct,
+        removeProduct,
       }}
     >
       {children}
     </DataContext.Provider>
   );
-}
+};
 
 export default DataProvider;
