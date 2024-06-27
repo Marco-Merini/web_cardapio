@@ -1,0 +1,62 @@
+.container-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0000004b;
+  padding: 20px;
+}
+
+.content-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #00000028;
+  border: 1px solid #00000028;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.content-cadastro h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.infos {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.infos label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.infos input {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Salvar {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Salvar:hover {
+  background-color: #0056b3;
+}

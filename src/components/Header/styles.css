@@ -1,0 +1,100 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  width: 100vw;
+  padding: 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.116);
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar .logo h4 {
+  color: orange;
+  margin-right: 10px;
+}
+
+.navbar .logo img {
+  width: 65px;
+  height: 55px;
+}
+
+.navbar a:hover {
+  color: orange;
+}
+
+.navbar .links {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.links a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-left: 20px;
+
+}
+
+.cart-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 0px;
+}
+
+.cart-count {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.username {
+  margin-left: 1rem;
+  cursor: pointer;
+  color: orange;
+}
+
+.logout-button {
+  display: block;
+  margin-top: 5px;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.admin-button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.admin-button:hover {
+  background-color: #000000;
+}
