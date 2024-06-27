@@ -23,11 +23,6 @@ const AdminUsers = () => {
     setNewUser({ ...newUser, [name]: value });
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setNewUser({ ...newUser, [name]: checked });
-  };
-
   const handleAddUser = () => {
     if (newUser.email && newUser.name && newUser.password) {
       console.log('Adicionando usuário:', newUser);
@@ -88,15 +83,6 @@ const AdminUsers = () => {
           value={newUser.password}
           onChange={handleInputChange}
         />
-        <label>
-          Admin:
-          <input
-            type="checkbox"
-            name="isAdmin"
-            checked={newUser.isAdmin}
-            onChange={handleCheckboxChange}
-          />
-        </label>
         <button onClick={handleSaveUser}>{editingUserId ? 'Salvar' : 'Adicionar Usuário'}</button>
       </div>
       <div>

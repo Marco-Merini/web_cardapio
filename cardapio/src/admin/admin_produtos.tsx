@@ -14,6 +14,7 @@ const AdminProdutos = () => {
     rate: 0,
     url: 'null'
   });
+  const [editingProductId, setEditingProductId] = useState<number | null>(null);
 
   if (!user || user.email !== "marco@gmail.com") {
     return <div>Você não tem permissão para acessar esta página.</div>;
@@ -54,24 +55,26 @@ const AdminProdutos = () => {
     }
   };
 
-  const handleUpdateProduct = (productId: number) => {
-    const updatedData: FoodItems = {
-      productId,
-      name: newProduct.name!,
-      preco: newProduct.preco!,
-      description: newProduct.description!,
-      url: newProduct.url!,
-      rate: newProduct.rate!,
-    };
-    updateProduct('allCategories', updatedData);
-    setNewProduct({
-      productId: 0,
-      name: "",
-      preco: 0,
-      description: "",
-      rate: 0,
-      url: 'null'
-    });
+  const handleEditProduct = (product: FoodItems) => {
+    setNewProduct(product);
+    setEditingProductId(product.productId);
+  };
+
+  const handleSaveProduct = () => {
+    if (editingProductId !== null) {
+      const updatedData: FoodItems = {
+        productId: editingProductId,
+        name: newProduct.name!,
+        preco: newProduct.preco!,
+        description: newProduct.description!,
+        url: newProduct.url!,
+        rate: newProduct.rate!,
+      };
+      updateProduct('allCategories', updatedData);
+      setEditingProductId(null);
+    } else {
+      handleAddProduct();
+    }
   };
 
   const handleRemoveProduct = (productId: number) => {
@@ -82,7 +85,7 @@ const AdminProdutos = () => {
     <div>
       <h2>Administração de Produtos</h2>
       <div>
-        <h3>Adicionar Novo Produto</h3>
+        <h3>{editingProductId ? 'Editar Produto' : 'Adicionar Novo Produto'}</h3>
         <input
           type="text"
           name="name"
@@ -119,7 +122,7 @@ const AdminProdutos = () => {
         {newProduct.url && (
           <img src={newProduct.url} alt="Preview" style={{ maxWidth: "200px", marginTop: "10px" }} />
         )}
-        <button onClick={handleAddProduct}>Adicionar Produto</button>
+        <button onClick={handleSaveProduct}>{editingProductId ? 'Salvar' : 'Adicionar Produto'}</button>
       </div>
       <div>
         <h3>Produtos Existentes</h3>
@@ -129,7 +132,7 @@ const AdminProdutos = () => {
             <p>{product.description}</p>
             <p>Preço: R$ {product.preco},00</p>
             <p>Avaliação: {product.rate}</p>
-            <button onClick={() => handleUpdateProduct(product.productId)}>Atualizar</button>
+            <button onClick={() => handleEditProduct(product)}>Atualizar</button>
             <button onClick={() => handleRemoveProduct(product.productId)}>Remover</button>
           </div>
         ))}

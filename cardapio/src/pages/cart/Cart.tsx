@@ -62,11 +62,13 @@ function Cart() {
           </div>
         )}
       </div>
-      <div className="d-flex justify-content-end" style={{ width: "80%", marginTop: "2%" }}>
-        <button onClick={checkout} className="btn btn-primary" type="button">
-          Finalizar compra!
-        </button>
-      </div>
+      {totalpreco() > 0 && (
+        <div className="d-flex justify-content-end" style={{ width: "80%", marginTop: "2%" }}>
+          <button onClick={checkout} className="btn btn-primary finalizar-compra-btn" type="button">
+            Finalizar compra!
+          </button>
+        </div>
+      )}
     </div>
   );
 }
