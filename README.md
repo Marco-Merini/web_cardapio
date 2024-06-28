@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# :globe_with_meridians: Cardápio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Escopo/Definição
 
-Currently, two official plugins are available:
+Desenvolver um cardápio digital para restaurantes, lanchonetes ou estabelecimentos similares, permitindo aos clientes visualizar, filtrar e personalizar pedidos, além de integrar funcionalidades de gestão de pedidos e pagamento.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades principais:
 
-## Expanding the ESLint configuration
+* Visualização de Itens
+* Adição ao Carrinho
+* Gestão de Pedidos
+* Simulação de integração com pagamento
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Comando para parar aplicação:
+```ctrl c```
 
-- Configure the top-level `parserOptions` property like this:
+## Comando para inicializar: 
+- ```npm run dev```: Aplicação
+- ```yarn start```: Banco de dados
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Pacotes para instalar as dependências:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```npm init -y```
+```yarn add express nodemon mysql cors```
+
+## 🚀💻Tecnologias utilizadas
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+![Vscode](https://img.shields.io/badge/Vscode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
